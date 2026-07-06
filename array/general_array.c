@@ -19,3 +19,18 @@ void find(int *nums, int size, int target){
     }
     return -1;
 }
+
+/*扩展数组*/
+void *extend(int *nums, int size, int enlarge){
+    /*新数组的长度*/
+    int *res = (int *)malloc((sizeof(int)) * (size + enlarge));
+    /*把旧数组的值复制到新数组*/
+    for(int i = 0; i < size; i++){
+        res[i] = nums[i];
+    }
+    /*初始化新数组扩展的长度*/
+    for(int i = size; i < size + enlarge; i++){
+        res[i] = 0;
+    }
+    return res;
+}
