@@ -38,3 +38,41 @@ bool ListInsert(LinkList *L, int i, ElemType e){
     p->next = s;    //在让P本身指向S
     return true;
 }
+
+/*在指定P节点前插入前序节点*/
+bool InsertPriorNode(LNode *p, LNode *s){
+    if(p == NULL)
+        return false;
+    s->next = p->next;
+    p->next = s;
+    ElemType temp = p->data;
+    p->data = s->data;
+    s->data = temp;
+    return true;
+}
+
+/*按位序删除节点*/
+
+bool ListDelete(LinkList *L, int i,ElemType *e){
+    if(i < 1){
+        return false;
+    }
+    LNode *p;
+    int j = 0;
+    p = L;
+    while(p != NULL && j < i - 1){
+        p = p->next;
+        j++;
+    }
+    if(p == NULL){
+        return false;
+    }
+    if(p->next == NULL){
+        return false;
+    }
+    LNode *q = p->next;
+    e = q->next;
+    p->next = q->next; 
+    free(q);
+    return true;
+}
