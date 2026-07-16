@@ -27,7 +27,7 @@ bool InsertNextNode(DNode *p, DNode *s){
 bool DeleteNextNode(DNode *p, DNode *q){
     if(p == NULL)   return false;
     DNode *p = p->next;
-    if(q == NULL)   retrun false;
+    if(q == NULL)   return false;
     p->next = q->next;
     if(q->next != NULL){
         q->next->prior = p;
