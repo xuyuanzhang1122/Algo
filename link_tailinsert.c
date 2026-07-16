@@ -15,7 +15,7 @@ LinkList List_TailInsert(LinkList *L){
     int x;
     L = (LinkList *)malloc(sizeof(LNode));
     LNode *s, *r = L;
-    scanf("%s", &x);
+    scanf("%d", &x);
     while(x != 9999){
         s = (LinkList *)malloc(sizeof(LNode));
         s->data = x;

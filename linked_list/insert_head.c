@@ -17,7 +17,7 @@ bool ListInsert(LinkList *L, int i, ElemType e){
     }
     LNode *p;   //指针P指向当前的节点
     int j = 0;
-    p = L;  //让指针P指向头结点L
+    p = *L;  //让指针P指向头结点L
     while(p != NULL && j < i - 1){  //当P不为空值且当J满足节点前一个时
         p = p->next;    //p向前移动，j增加，循环到不满足条件也就是i - 1时
         j++;

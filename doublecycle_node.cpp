@@ -24,6 +24,7 @@ bool Empty(DLinkList L){
     else{
         return false;
     }
+    return true;
 }
 
 bool isTail(DLinkList L, DNode *p){
@@ -33,6 +34,7 @@ bool isTail(DLinkList L, DNode *p){
     else{
         return false;
     }
+    return true;
 }
 
 bool InsertNextNode(DNode *p, DNode *s){
@@ -40,10 +42,12 @@ bool InsertNextNode(DNode *p, DNode *s){
     p->next->prior = s;
     s->prior = p;
     p->next = s;
+    return true;
 }
 
 bool DeleteNextNode(DNode *p, DNode *q){
     p->next = q->next;
     q->next->prior = p;
     free(q);
+    return true;
 }
