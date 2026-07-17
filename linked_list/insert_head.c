@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdbool.h>    //用来解决bool，true，flase不兼容
+#include <stdbool.h>    //用来解决C中的bool，true，flase不兼容∏
 
 typedef struct LNode
 {
