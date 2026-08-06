@@ -12,11 +12,11 @@ typedef int ElemType;   //声明ElemType的类型为int
 
 /*插入后继节点*/
 bool InsertNextNode(DNode *p, DNode *s){
-    if(p == NULL || s == NULL){
+    if (p == NULL || s == NULL){
         return false;
     }
     s->next = p->next;
-    if(p->next != NULL){
+    if (p->next != NULL){
         p->next->prior = s;
     }
     s->prior = p;
@@ -25,14 +25,16 @@ bool InsertNextNode(DNode *p, DNode *s){
 }
 /*删除后继节点*/
 bool DeleteNextNode(DNode *p){
-    if(p == NULL)   return false;
-    DNode *q = p->next;
-    if(q == NULL)   return false;
+    DNode *q = p->next; //目的是为了找到也就是确认p的后继节点是q
+    if (p == NULL || q == NULL){
+        return false;
+    }
     p->next = q->next;
-    if(q->next != NULL){
+    if (q->next != NULL){
         q->next->prior = p;
     }
     free(q);
     return true;
 }
+
 /*销毁L*/
