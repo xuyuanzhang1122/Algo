@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>    //用来解决bool，true，flase不兼容
+#include <stdlib.h> //引入free
 
 typedef struct DNode
 {
     //ElemType data;
     int data;
     struct DNode *next,*prior ;
-}DNode,*LinkList; //LNode = struct LNode, *LinkList = struct LNode *
+}DNode,*DLinkList; //LNode = struct LNode, *LinkList = struct LNode *
 
 typedef int ElemType;   //声明ElemType的类型为int
 
@@ -38,3 +39,11 @@ bool DeleteNextNode(DNode *p){
 }
 
 /*销毁L*/
+void DestoryList(DLinkList &L){
+    //循环释放掉L的节点
+    while(L->next != NULL){
+        DeleteNextNode(L);
+    }
+    free(L);
+    L == NULL;
+}
