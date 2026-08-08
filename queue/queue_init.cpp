@@ -19,3 +19,34 @@ void InitQueue(SqQueue &Q){
     */
     Q.rear = Q.front = 0;
 }
+bool QueueEmpty(SqQueue Q){
+    /*
+    *判断队列是否为空
+    */
+    if (Q.front == Q.rear)  return true;
+    else return false;
+}
+//插入元素
+bool EnQueue(SqQueue &Q, Elemtype x){
+    if ((Q.rear + 1) % Maxsize == Q.front){ //通过判断下一个指针如果是Q.front，说明队列已满
+        return false;
+    }
+    Q.data[Q.rear] = x; //目前理解的意思为将 x 这个值存放到数组Q.data中下标为Q.rear的位置
+    Q.rear = (Q.rear + 1) % Maxsize;
+    return true;
+}
+
+//出队操作
+bool DeQueue(SqQueue &Q, Elemtype x){
+    if (Q.rear == Q.front)  return false;
+    x = Q.data[Q.front];
+    Q.front = (Q.front + 1) % Maxsize;
+    return true;
+}
+
+//获取对头元素的值，用x返回
+bool GetHead(SqQueue Q, Elemtype x){
+    if (Q.front == Q.rear) return false;
+    x = Q.data[Q.front];
+    return true;
+}
